@@ -7,7 +7,6 @@ namespace practica2025
     class PuntoEntrada
     {
        
-    
         public string Nombre { get; set; }
         public int PotenciaMaxima { get; set; }
         public string URL { get; set; }
@@ -52,11 +51,12 @@ namespace practica2025
         public void CargarDatos()
         {
             // Lógica para cargar datos del punto de entrada
-             Console.WriteLine("Ingrese el nombre del punto de entrada:");
-            string nombre = Console.ReadLine()!;
+            Console.WriteLine("Ingrese el nombre del punto de entrada:");
+            string nombre = Console.ReadLine();
 
             Console.WriteLine("Ingrese la potencia máxima:");
-            string potenciaInput = Console.ReadLine()!;
+            string potenciaInput = Console.ReadLine();
+
             while (!IsValidInteger(potenciaInput))
             {
                 Console.WriteLine("Entrada no válida. Por favor ingrese un número entero para la potencia máxima:");
