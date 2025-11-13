@@ -6,13 +6,12 @@ namespace practica2025
 {
     class NodoDistribucion
     {
-        public int codigo{ get; set; }
-        public string ubicacion{ get; set; }
-        public string puntoConexioIn{ get; set; }
-        public string repartidorOut{ get; set; }
-       
+        //Atributos de la clase
+        private ushort codigo;
+        private string ubicacion, puntoConexion, repartidorOut;
 
-        public NodoDistribucion(int codigo, string ubicacion, string puntoConexioIn, string repartidorOut)
+        //Constructor con todos los atributos de la clase
+        public NodoDistribucion(ushort codigo, string ubicacion, string puntoConexioIn, string repartidorOut)
         {
             this.codigo = codigo;
             this.ubicacion = ubicacion;
@@ -20,13 +19,59 @@ namespace practica2025
             this.repartidorOut = repartidorOut;
         }
 
+        //Constructor con valores por defecto
+
         public NodoDistribucion()
         {
             this.codigo = 0;
             this.ubicacion = "Ubicacion Default";
             this.puntoConexioIn = "Punto Default";
             this.repartidorOut = "Repartidor Default";
-            
+
+        }
+
+        public int getCodigo
+        {
+            get
+            {
+                return codigo;
+            }
+        }
+
+        public string getUbicacion
+        {
+            get
+            {
+                return ubicacion;
+            }
+            set
+            {
+                ubicacion = value;
+            }
+        }
+
+        public string getPuntoConexion
+        {
+            get
+            {
+                return puntoConexioIn
+            }
+            set
+            {
+                puntoConexioIn = value;
+            }
+        }
+
+        public string getRepartidor
+        {
+            get
+            {
+                return repartidorOut;
+            }
+            set 
+            {
+                repartidorOut = value;
+            }
         }
 
         public void MostrarInfo()

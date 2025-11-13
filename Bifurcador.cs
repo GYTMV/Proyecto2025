@@ -6,12 +6,9 @@ namespace practica2025
 {
     class Bifurcador
     {
-        int codigoBifurcador;
-        string ubicacion;
-        string fuenteIn;
-        string fuenteOut1;
-        string fuenteOut2;
-
+        private int codigoBifurcador;
+        private string ubicacion, fuenteIn, fuenteOut1, fuenteOut2;
+       
         public Bifurcador(int codigoBifurcador, string ubicacion, string fuenteIn, string fuenteOut1, string fuenteOut2)
         {
             this.codigoBifurcador = codigoBifurcador;
@@ -20,12 +17,20 @@ namespace practica2025
             this.fuenteOut1 = fuenteOut1;
             this.fuenteOut2 = fuenteOut2;
         }
-        public void MostrarInfo()
+        public void BifurcadorInfo()
         {
             Console.WriteLine($"Bifurcador Código: {codigoBifurcador}, Ubicación: {ubicacion}, Fuente de Entrada: {fuenteIn}");
-            Console.WriteLine($"Fuente de Salida 1: {fuenteOut1}, Fuente de Salida 2: {fuenteOut2}");
         }
+        public void InfoSalida()
+        {
+            Console.WriteLine($"Fuente de Salida 1: {fuenteOut1}, Fuente de Salida 2: {fuenteOut2}");
 
+        }
+        public void BifurcadorYSalida()
+        {
+            Console.WriteLine($"Bifurcador Código: {codigoBifurcador}, Ubicación: {ubicacion}, Fuente de Entrada: {fuenteIn}," +
+                $" Su primera fuente de salida queda en {fuenteOut1} y su segunda fuente de salida queda en {fuenteOut2}");
+        }
         public void CargarDatos()
         {
             // Lógica para cargar datos del bifurcador
