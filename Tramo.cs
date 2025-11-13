@@ -6,16 +6,12 @@ namespace practica2025
 {
     class Tramo
     {
-        int codigoTramo;
-        string calle;
-        int alturaInicio;
-        int alturaFin;
-        int fases;
-        string fuenteIn;
-        string fuenteOut;
+        int codigoTramo, fases;
+        string calle, fuenteIn, fuenteOut;
+        ushort alturaInicio, alturaFin;
+  
 
-
-        public Tramo(int codigoTramo, string calle, int alturaInicio, int alturaFin, int fases, string fuenteIn, string fuenteOut)
+        public Tramo(int codigoTramo, string calle, ushort alturaInicio, ushort alturaFin, int fases, string fuenteIn, string fuenteOut)
         {
             this.codigoTramo = codigoTramo;
             this.calle = calle;
@@ -32,6 +28,7 @@ namespace practica2025
             Console.WriteLine($"Fases: {fases}, Fuente de Entrada: {fuenteIn}, Fuente de Salida: {fuenteOut}");
 
         }
+
 
         public void CargarDatos()
         {
