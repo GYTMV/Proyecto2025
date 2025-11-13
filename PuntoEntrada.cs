@@ -6,6 +6,7 @@ namespace practica2025
 {
     class PuntoEntrada
     {
+        private byte nuevo;
        
         public string Nombre { get; set; }
         public int PotenciaMaxima { get; set; }
