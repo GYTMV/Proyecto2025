@@ -1,2 +1,5 @@
 .vs
 obj/Release/
+obj/Debug/net9.0/practica2025.AssemblyInfo.cs
+obj/Debug/net9.0/practica2025.AssemblyInfoInputs.cache
+obj/Debug/net9.0/practica2025.GeneratedMSBuildEditorConfig.editorconfig
