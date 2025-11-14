@@ -43,7 +43,7 @@ namespace practica2025
 
         public string getPuntoConexion
         {
-            get { return puntoConexion;}
+            get {return puntoConexion;}
         }
 
         public string getRepartidor
