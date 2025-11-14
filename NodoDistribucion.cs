@@ -32,46 +32,23 @@ namespace practica2025
 
         public int getCodigo
         {
-            get
-            {
-                return codigo;
-            }
+            get {return codigo;}
+            
         }
 
         public string getUbicacion
         {
-            get
-            {
-                return ubicacion;
-            }
-            set
-            {
-                ubicacion = value;
-            }
+            get {return ubicacion;}
         }
 
         public string getPuntoConexion
         {
-            get
-            {
-                return puntoConexioIn
-            }
-            set
-            {
-                puntoConexioIn = value;
-            }
+            get {return puntoConexion;}
         }
 
         public string getRepartidor
         {
-            get
-            {
-                return repartidorOut;
-            }
-            set 
-            {
-                repartidorOut = value;
-            }
+            get {return repartidorOut;}
         }
 
         public void MostrarInfo()
