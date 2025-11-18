@@ -107,14 +107,14 @@ namespace practica2025
             string fuenteIn = Console.ReadLine()!;
             Console.WriteLine("Ingrese la fuente de salida:");
             string fuenteOut = Console.ReadLine()!;
-            Tramo nuevoTramo = new Tramo(codigoTramo, calle, (ushort)alturaInicio, (ushort)alturaFin, (byte)fases, fuenteIn, fuenteOut);
+            Tramo nuevoTramo = new Tramo(codigoTramo, calle, alturaInicio, alturaFin, fases, fuenteIn, fuenteOut);
             Console.WriteLine("Tramo creado con éxito.");
 
             this.codigoTramo = codigoTramo;
             this.calle = calle;
-            this.alturaInicio = (ushort)alturaInicio;
-            this.alturaFin = (ushort)alturaFin;
-            this.fases = (byte)fases;
+            this.alturaInicio = alturaInicio;
+            this.alturaFin = alturaFin;
+            this.fases = fases;
             this.fuenteIn = fuenteIn;
             this.fuenteOut = fuenteOut;
 
