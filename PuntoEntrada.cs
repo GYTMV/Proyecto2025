@@ -2,6 +2,8 @@
 
 using System;
 using System.Text.RegularExpressions;
+using System.ComponentModel.DataAnnotations;
+using System.Security.Cryptography.X509Certificates;
 
 namespace practica2025
 {
@@ -108,6 +110,17 @@ namespace practica2025
 
             string regexValidet = @"^(https?:\/\/)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/.*)?$";
             return Regex.IsMatch(url, regexValidet);
+
+         
+        }
+
+        public static bool IsValidPhone(string telDirector)
+        {
+            if (string.IsNullOrEmpty(telDirector))
+                return false;
+
+            string regexValidetPhone = @"^(\d{3}[-]?){2}\d{4}$|^(\d{10})$";
+            return Regex.IsMatch(telDirector, regexValidetPhone);
         }
 
         public void CargarDatos()
@@ -136,14 +149,25 @@ namespace practica2025
                 url = Console.ReadLine()!;
             }
 
+            //Nro teléfono no válido
+            while(!IsValidPhone(telDirector))
+            {
+                Console.WriteLine("No ingresaste un número de teléfono. Ingrese un número de teléfono");
+                telDirector = Console.ReadLine()!; 
+            }
+
             Console.WriteLine("Ingrese el nombre del director:");
             string nombreDirector = Console.ReadLine()!;
+
 
             Console.WriteLine("Ingrese el teléfono del director:");
             string telDirector = Console.ReadLine()!;
 
+
             Console.WriteLine("Ingrese el nodo de conexión:");
             string nodoConexion = Console.ReadLine()!;
+
+           
 
             // Asignar los valores ingresados a las propiedades del objeto
             this.nombre = nombre;
