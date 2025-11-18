@@ -6,7 +6,7 @@ namespace practica2025
 {
     class Tramo
     {
-        int codigoTramo:
+        int codigoTramo;
         byte fases;
         string calle, fuenteIn, fuenteOut;
         ushort alturaInicio, alturaFin;
@@ -86,7 +86,7 @@ namespace practica2025
                 Console.WriteLine("Entrada no válida. Por favor ingrese un número entero para la altura de inicio:");
                 alturaInicioInput = Console.ReadLine()!;
             }
-            int alturaInicio = int.Parse(alturaInicioInput);
+            ushort alturaInicio = ushort.Parse(alturaInicioInput);
             Console.WriteLine("Ingrese la altura de fin:");
             string alturaFinInput = Console.ReadLine()!;
             while (!PuntoEntrada.IsValidInteger(alturaFinInput))
@@ -94,7 +94,7 @@ namespace practica2025
                 Console.WriteLine("Entrada no válida. Por favor ingrese un número entero para la altura de fin:");
                 alturaFinInput = Console.ReadLine()!;
             }
-            int alturaFin = int.Parse(alturaFinInput);
+            ushort alturaFin = ushort.Parse(alturaFinInput);
             Console.WriteLine("Ingrese el número de fases:");
             string fasesInput = Console.ReadLine()!;
             while (!PuntoEntrada.IsValidInteger(fasesInput))
@@ -102,7 +102,7 @@ namespace practica2025
                 Console.WriteLine("Entrada no válida. Por favor ingrese un número entero para las fases:");
                 fasesInput = Console.ReadLine()!;
             }
-            int fases = int.Parse(fasesInput);
+            byte fases = byte.Parse(fasesInput);
             Console.WriteLine("Ingrese la fuente de entrada:");
             string fuenteIn = Console.ReadLine()!;
             Console.WriteLine("Ingrese la fuente de salida:");

@@ -1,6 +1,7 @@
 
 
 using System;
+using System.Text.RegularExpressions;
 
 namespace practica2025
 {
@@ -11,11 +12,18 @@ namespace practica2025
         public byte potenciaMaxima;
 
         //Constructor 1
-        public PuntoEntrada(string nombre, int PotenciaMaxima, string url, string nombreDirector, string telDirector, string nodoConexion)
+        public PuntoEntrada(string nombre, byte PotenciaMaxima, string url, string nombreDirector, string telDirector, string nodoConexion)
         {
             this.nombre = nombre;
             this.potenciaMaxima = PotenciaMaxima;
-            this.uRL = url;
+            
+            if (!IsValidUrl(url))
+            {
+                throw new ArgumentException("La URL ingresada no es valida. Por favor ingrese una URL valida.");
+            }
+
+            this.url = url;
+            
             this.nombreDirector = nombreDirector;
             this.telDirector = telDirector;
             this.nodoConexion = nodoConexion;
@@ -42,7 +50,7 @@ namespace practica2025
             get {return potenciaMaxima;}
         }
 
-        public int GetUrl
+        public string GetUrl
         {
             get {return url;}
         }
@@ -67,30 +75,39 @@ namespace practica2025
 
         public void MostarInfo()
         {
-            Console.WriteLine($"Hola, el nombre del punto es {Nombre} y su potencia maxima es {PotenciaMaxima} .");
-            Console.WriteLine($"El URL del punto de entrada es {URL}.");
-            Console.WriteLine($"El nombre del director es {NombreDirector} y su telefono es {TelDirector}.");
-            Console.WriteLine($"El nodo de conexion es {NodoConexion}.");
+            Console.WriteLine($"Hola, el nombre del punto es {nombre} y su potencia maxima es {potenciaMaxima} .");
+            Console.WriteLine($"El URL del punto de entrada es {url}.");
+            Console.WriteLine($"El nombre del director es {nombreDirector} y su telefono es {telDirector}.");
+            Console.WriteLine($"El nodo de conexion es {nodoConexion}.");
         }
         public void MostrarInfoRed()
         {
-            Console.WriteLine($"Hola, el nombre del punto es {Nombre} y su potencia maxima es {PotenciaMaxima}, El URL del punto de entrada es {URL} ");
+            Console.WriteLine($"Hola, el nombre del punto es {nombre} y su potencia maxima es {potenciaMaxima}, El URL del punto de entrada es {url} ");
         }
 
         public void InfoDirector()
         {
-            Console.WriteLine($"El nombre del director es {NombreDirector} y su telefono es {TelDirector}.");
+            Console.WriteLine($"El nombre del director es {nombreDirector} y su telefono es {telDirector}.");
 
         }
 
-        public void NodoConexion
+        public void NodoConexion()
         {
-            Console.WriteLine($"El nodo de conexion es {NodoConexion}.");
+            Console.WriteLine($"El nodo de conexion es {nodoConexion}.");
         }
 
         public static bool IsValidInteger(string input)
         {
             return !string.IsNullOrWhiteSpace(input) && int.TryParse(input, out _);
+        }
+
+        public static bool IsValidUrl(string url)
+        {
+            if (string.IsNullOrWhiteSpace(url))
+                return false;
+
+            string regexValidet = @"^(https?:\/\/)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/.*)?$";
+            return Regex.IsMatch(url, regexValidet);
         }
 
         public void CargarDatos()
@@ -107,10 +124,17 @@ namespace practica2025
                 Console.WriteLine("Entrada no válida. Por favor ingrese un número entero para la potencia máxima:");
                 potenciaInput = Console.ReadLine()!;
             }
-            int potenciaMaxima = int.Parse(potenciaInput);
+            byte potenciaMaxima = byte.Parse(potenciaInput);
 
             Console.WriteLine("Ingrese el URL del punto de entrada:");
             string url = Console.ReadLine()!;
+            
+            // En caso de que la URL no sea valida, se pedira que ingrese una URL valida hasta que sea valida.
+            while (!IsValidUrl(url))
+            {
+                Console.WriteLine("La URL ingresada no es valida. Por favor ingrese una URL valida.");
+                url = Console.ReadLine()!;
+            }
 
             Console.WriteLine("Ingrese el nombre del director:");
             string nombreDirector = Console.ReadLine()!;

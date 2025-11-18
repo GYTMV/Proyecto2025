@@ -11,11 +11,11 @@ namespace practica2025
         private string ubicacion, puntoConexion, repartidorOut;
 
         //Constructor con todos los atributos de la clase
-        public NodoDistribucion(ushort codigo, string ubicacion, string puntoConexioIn, string repartidorOut)
+        public NodoDistribucion(ushort codigo, string ubicacion, string puntoConexion, string repartidorOut)
         {
             this.codigo = codigo;
             this.ubicacion = ubicacion;
-            this.puntoConexioIn = puntoConexioIn;
+            this.puntoConexion = puntoConexion;
             this.repartidorOut = repartidorOut;
         }
 
@@ -25,7 +25,7 @@ namespace practica2025
         {
             this.codigo = 0;
             this.ubicacion = "Ubicacion Default";
-            this.puntoConexioIn = "Punto Default";
+            this.puntoConexion = "Punto Default";
             this.repartidorOut = "Repartidor Default";
 
         }
@@ -53,7 +53,7 @@ namespace practica2025
 
         public void MostrarInfo()
         {
-            Console.WriteLine($"Nodo de Distribución Código: {codigo}, Ubicación: {ubicacion}, Punto de Conexión de entrada: {puntoConexioIn}, Repartidor de salida: {repartidorOut}");
+            Console.WriteLine($"Nodo de Distribución Código: {codigo}, Ubicación: {ubicacion}, Punto de Conexión de entrada: {puntoConexion}, Repartidor de salida: {repartidorOut}");
         }
 
         public void CargarDatos()
@@ -66,17 +66,17 @@ namespace practica2025
                 Console.WriteLine("Entrada no válida. Por favor ingrese un número entero para el código:");
                 codigoInput = Console.ReadLine()!;
             }
-            int codigo = int.Parse(codigoInput);
+            ushort codigo = ushort.Parse(codigoInput);
             Console.WriteLine("Ingrese calle y altura del nodo de distribución:");
             string ubicacion = Console.ReadLine()!;
             Console.WriteLine("Ingrese el punto de conexión de entrada:");
-            string puntoConexioIn = Console.ReadLine()!;
+            string puntoConexion = Console.ReadLine()!;
             Console.WriteLine("Ingrese el repartidor de salida:");
             string repartidorOut = Console.ReadLine()!;
 
             this.codigo = codigo;
             this.ubicacion = ubicacion;
-            this.puntoConexioIn = puntoConexioIn;
+            this.puntoConexion = puntoConexion;
             this.repartidorOut = repartidorOut;
 
         }
