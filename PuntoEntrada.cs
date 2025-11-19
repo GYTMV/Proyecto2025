@@ -8,11 +8,11 @@ namespace practica2025
     class PuntoEntrada
     {
         //Atributos de clase
-        public string nombre, url, nombreDirector, telDirector, nodoConexion;
+        public string nombre, url, nombreDirector, telefono, nodo;
         public byte potenciaMaxima;
 
         //Constructor 1
-        public PuntoEntrada(string nombre, byte PotenciaMaxima, string url, string nombreDirector, string telDirector, string nodoConexion)
+        public PuntoEntrada(string nombre, byte PotenciaMaxima, string url, string nombreDirector, string telefono, string nodo)
         {
             this.nombre = nombre;
             this.potenciaMaxima = PotenciaMaxima;
@@ -25,8 +25,8 @@ namespace practica2025
             this.url = url;
             
             this.nombreDirector = nombreDirector;
-            this.telDirector = telDirector;
-            this.nodoConexion = nodoConexion;
+            this.telefono = telefono;
+            this.nodo = nodo;
         }
 
         //Constructor 2
@@ -36,8 +36,8 @@ namespace practica2025
             this.potenciaMaxima = 100;
             this.url = "http://default.url";
             this.nombreDirector = "Director Default";
-            this.telDirector = "000-000-0000";
-            this.nodoConexion = "Nodo Default";
+            this.telefono = "000-000-0000";
+            this.nodo = "Nodo Default";
 
         }
         public string GetNombre
@@ -63,13 +63,13 @@ namespace practica2025
 
         public string GetTelDirector
         {
-            get {return telDirector;}
-            set {telDirector = value;}
+            get {return telefono;}
+            set {telefono = value;}
         }
 
         public string GetNodoConexion
         {
-            get {return nodoConexion;}
+            get {return nodo;}
         }
             
 
@@ -77,8 +77,8 @@ namespace practica2025
         {
             Console.WriteLine($"Hola, el nombre del punto es {nombre} y su potencia maxima es {potenciaMaxima} .");
             Console.WriteLine($"El URL del punto de entrada es {url}.");
-            Console.WriteLine($"El nombre del director es {nombreDirector} y su telefono es {telDirector}.");
-            Console.WriteLine($"El nodo de conexion es {nodoConexion}.");
+            Console.WriteLine($"El nombre del director es {nombreDirector} y su telefono es {telefono}.");
+            Console.WriteLine($"El nodo de conexion es {nodo}.");
         }
         public void MostrarInfoRed()
         {
@@ -87,13 +87,13 @@ namespace practica2025
 
         public void InfoDirector()
         {
-            Console.WriteLine($"El nombre del director es {nombreDirector} y su telefono es {telDirector}.");
+            Console.WriteLine($"El nombre del director es {nombreDirector} y su telefono es {telefono}.");
 
         }
 
         public void NodoConexion()
         {
-            Console.WriteLine($"El nodo de conexion es {nodoConexion}.");
+            Console.WriteLine($"El nodo de conexion es {nodo}.");
         }
 
         public static bool IsValidInteger(string input)
@@ -108,6 +108,15 @@ namespace practica2025
 
             string regexValidet = @"^(https?:\/\/)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/.*)?$";
             return Regex.IsMatch(url, regexValidet);
+        }
+
+        public static bool IsValidPhone(string telDirector)
+        {
+            if (string.IsNullOrEmpty(telDirector))
+                return false;
+
+            string regexValidetPhone = @"^(\d{3}[-]?){2}\d{4}$|^(\d{10})$";
+            return Regex.IsMatch(telDirector, regexValidetPhone);
         }
 
         public void CargarDatos()
@@ -136,22 +145,33 @@ namespace practica2025
                 url = Console.ReadLine()!;
             }
 
+            //Nro teléfono no válido
+            while(!IsValidPhone(telefono))
+            {
+                Console.WriteLine("No ingresaste un número de teléfono. Ingrese un número de teléfono");
+                telefono = Console.ReadLine()!; 
+            }
+
             Console.WriteLine("Ingrese el nombre del director:");
             string nombreDirector = Console.ReadLine()!;
 
+
             Console.WriteLine("Ingrese el teléfono del director:");
-            string telDirector = Console.ReadLine()!;
+            string telefono = Console.ReadLine()!;
+
 
             Console.WriteLine("Ingrese el nodo de conexión:");
-            string nodoConexion = Console.ReadLine()!;
+            string nodo = Console.ReadLine()!;
+
+           
 
             // Asignar los valores ingresados a las propiedades del objeto
             this.nombre = nombre;
             this.potenciaMaxima = potenciaMaxima;
             this.url = url;
             this.nombreDirector = nombreDirector;
-            this.telDirector = telDirector;
-            this.nodoConexion = nodoConexion;
+            this.telefono = telefono;
+            this.nodo = nodo;
 
         }
     }
